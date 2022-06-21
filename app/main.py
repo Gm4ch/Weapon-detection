@@ -16,28 +16,34 @@ if base_url == '/':
     app = Flask(__name__)
 else:
     app = Flask(__name__, static_url_path=base_url+'static')
+    
+    
 
+# app = Flask(__name__)
 UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024
 
-model = torch.hub.load("ultralytics/yolov5", "custom", path = 'best.pt', force_reload=True)
+model = torch.hub.load("ultralytics/yolov5", "custom", path = '1best.pt', force_reload=True)
 
-def allowed_file(filename):
+def allowed_file(filename): #checks if file type is a picture
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route(f'{base_url}', methods=['GET', 'POST'])
-def home():
+def home(): #checks if user has inputed a file
+    print(request.method)
     if request.method == 'POST':
         # check if the post request has the file part
+        print(request.files)
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
 
         file = request.files['file']
+        print(file)
         # if user does not select file, browser also
         # submit an empty part without filename
         if file.filename == '':
@@ -47,14 +53,16 @@ def home():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            print("SAVED")
             return redirect(url_for('uploaded_file',
                                     filename=filename))
 
-    return render_template('home.html')
+    return render_template('index.html')
 
 
 @app.route(f'{base_url}/uploads/<filename>')
-def uploaded_file(filename):
+def uploaded_file(filename): #inputs filename and runs it though model as a pandas array
+
     here = os.getcwd()
     image_path = os.path.join(here, app.config['UPLOAD_FOLDER'], filename)
     results = model(image_path, size=416)
@@ -87,16 +95,18 @@ def uploaded_file(filename):
         labels = set(labels)
         labels = [emotion.capitalize() for emotion in labels]
         labels = and_syntax(labels)
+        print("TEST to see if trying to render results.html")
         return render_template('results.html', confidences=format_confidences, labels=labels,
                                old_filename=filename,
                                filename=filename)
     else:
         found = False
-        return render_template('results.html', labels='No Emotion', old_filename=filename, filename=filename)
+        print("TEST to see if trying to render results.html")
+        return render_template('results.html', labels='No Weapons', old_filename=filename, filename=filename)
 
 
 @app.route(f'{base_url}/uploads/<path:filename>')
-def files(filename):
+def files(filename):#takes file from model and sends as annotated image back to site
     return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
 
 # define additional routes here
@@ -107,7 +117,7 @@ def files(filename):
 
 if __name__ == '__main__':
     # IMPORTANT: change url to the site where you are editing this file.
-    website_url = 'url'
-    
+    website_url = 'cocalc13.ai-camp.dev'
+
     print(f'Try to open\n\n    https://{website_url}' + base_url + '\n\n')
     app.run(host = '0.0.0.0', port=port, debug=True)
