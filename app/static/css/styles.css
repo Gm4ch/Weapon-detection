@@ -345,6 +345,7 @@ button:focus:not(:focus-visible) {
   outline: 0;
 }
 
+
 input,
 button,
 select,
@@ -11497,7 +11498,7 @@ body {
   padding: 0.9rem 0;
 }
 #mainNav .navbar-nav .nav-item:hover {
-  color: fade(#fff, 80%);
+  color: black;
   outline: none;
   background-color: transparent;
 }
@@ -11644,6 +11645,7 @@ body {
   }
 }
 
+
 .signup-section {
   padding: 10rem 0;
   background-image: url("https://cocalc13.ai-camp.dev/9f552ddb-0255-4438-a179-8f8c475cfce3/raw/Front%20End%20Stuff/startbootstrap-grayscale-gh-pages/assets/img/rifle.jpeg");
@@ -11666,6 +11668,7 @@ body {
 .contact-section {
   padding-top: 5rem;
 }
+
 .contact-section .card {
   border: 0;
   border-bottom: 0.25rem solid #64a19d;
@@ -11702,6 +11705,7 @@ body {
 
 .footer {
   padding: 5rem 0;
+/*margin-bottom: -30vh; */
 }
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
@@ -11813,7 +11817,7 @@ body{
 	background-color: #ffffff;
 	color:#009688;
 	border-radius: 50%;
-	margin:0 2px;
+	margin:0 0;
 	text-align: center;
 	line-height: 32px;
 	font-size:16px;
@@ -11823,6 +11827,11 @@ body{
 .team-section .team-items .item .inner .info .social-links a:hover{
 	box-shadow: 0 0 10px #000;
 }
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 
 /*responsive*/
 @media(max-width: 991px){

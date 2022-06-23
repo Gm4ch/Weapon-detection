@@ -6,31 +6,34 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Weapon detection model</title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
         <link rel="icon" type="image/x-icon" href="assets/ai_camp.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        
+        <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
 
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#page-top"><img src="https://static.wixstatic.com/media/12b467_a4ceef0f338c41c7885cb083ea36a00f~mv2_d_1742_1743_s_2.png/v1/fill/w_68,h_68,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ai%20camp%20logo.png" style = "width:100%"></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars"></i><div style='text-align:right'></div>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Info</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Our Model</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about" style="color:black">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects" style="color:black">Info</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signup" style="color:black">Our Model</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#us" style="color:black">The Team</a></li>
                     </ul>
-                </div>
+                </div><pre></pre>
             </div>
         </nav>
         <!-- Masthead-->
@@ -40,7 +43,7 @@
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase" style = "color:white">Weapon Detection</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">Useful AI Model that detects weapons; critical to prevent incidents.</h2>
-                      <a class="btn btn-primary" href="#about">Read about our model</a>
+                      <a class="btn btn-primary" href="https://docs.google.com/presentation/d/1ySOWBh4DQRS_xUWVIwWhFOmYsYvchK1Ynun9ZSKF4lo/edit#slide=id.g13243123c91_10_54" target="_blank">Read about our model</a>
                     </div>
                 </div>
             </div>
@@ -52,11 +55,12 @@
                     <div class="col-lg-8">
                         <h2 class="text-white mb-4">Built with YOLOv5</h2>
                         <p class="text-white-50">
-                            YOLOv5 🚀 is a family of object detection architectures and models pre-trained on the COCO dataset, and represents Ultralytics open-source research into future vision AI methods, incorporating lessons learned and best practices evolved over thousands of hours of research and development.
+                            YOLOv5 🚀 is a family of object detection architectures and models pre-trained on the COCO dataset, and represents Ultralytics open-source research into future vision AI methods, incorporating lessons learned and best practices evolved over thousands of hours of research and development. <br>
+                          <a href="https://docs.google.com/presentation/d/1TJVjbd0gxJ1XSBDC1HaIfGvIQuUsT5jUoAaQaripfEQ/edit?usp=sharing" target="_blank" style= "z-index:-1">Learn about the process</a>
                         </p>
                     </div>
                 </div>
-                <img class="img-fluid" src="https://cdn-images-1.medium.com/max/1024/1*bSLNlG7crv-p-m4LVYYk3Q.png" style = "width:50%; margin-top:-10vh" alt="..." />
+                <img class="img-fluid" src="https://assets.website-files.com/5f6bc60e665f54db361e52a9/5f6bc60e665f546a6b1e5400_logo_yolo-p-500.png" style = "width:40%; margin-top: -2vh" alt="..."/>
             </div>
         </section>
         <!-- Projects-->
@@ -75,13 +79,13 @@
                 </div> -->
                 <!-- Project One Row-->
                 <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="../static/images/assets/img/guns.jpg" alt="..." /></div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6"><img class="img-fluid" src="https://media.npr.org/assets/img/2018/01/25/gettyimages-594190689_wide-f8f1aff223a29a977b6e402e5925adfabf12d1f5-s800-c85.webp" alt="..." /></div>
+                    <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
                                     <h4 class="text-white">Firearms</h4>
-                                    <p class="mb-0 text-white-50">Firearms such as rifles, handguns, and shotguns are all accurately recognized.</p>
+                                    <p class="mb-0 text-white-50">Firearms such as rifles, handguns, and shotguns are all recognized my the model.</p>
                                     <hr class="d-none d-lg-block mb-0 ms-0" />
                                 </div>
                             </div>
@@ -89,13 +93,13 @@
                     </div>
                 </div>
                 <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="../static/images/assets/img/Knives.jpg" alt="..." /></div>
+                    <div class="col-lg-6"><img class="img-fluid" src="https://media.istockphoto.com/photos/knife-picture-id1318113415?k=20&m=1318113415&s=612x612&w=0&h=ssXQYNziiH_QRX12ObJeWlygi4xWqbfv_Xiuf-c7w0I=" alt="..." /></div>
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">Knifes</h4>
-                                    <p class="mb-0 text-white-50">The model can also detect knives pretty accurately.</p>
+                                    <h4 class="text-white">Knives</h4>
+                                    <p class="mb-0 text-white-50">The model is able to accurately recognize knifes, and other bladed melee weapons.</p>
                                     <hr class="d-none d-lg-block mb-0 ms-0" />
                                 </div>
                             </div>
@@ -119,12 +123,13 @@
                 </div>
             </div>
           </div>
+      </section>
         <!-- Try Model-->
         <section class="signup-section" id="signup">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
-                        <i class="fa-solid fa-nah fa-2x mb-2 text-white"></i>
+                        <i class="fa-solid fa-person-rifle fa-2x mb-2 text-white"></i>
                         <h2 class="text-white mb-5">Try Our Model</h2>
 <!--                           <form action="/action_page.php">
                             <input type="file" id="myFile" name="filename">
@@ -133,18 +138,43 @@
                             <!-- Email address input-->
                             <div class="row">
 
-
-<!--                                <a class="mb-0" id='seefood_button'>
-                                <form id='seefood_form' method=post enctype=multipart/form-data>
-                                    <input id="seefood_input_field" name="file" type="file" onchange="this.form.submit();" hidden/>
-                                </form>
-                                <button href="#" target="_blank" class="btn btn-white btn-circled btn-text">
-                                    <i class="fas fa-camera pr-2 left" aria-hidden="true"></i> Click to see emotion
-                                </button>
-                            </a> -->
-                                
                               <form name=file method=post enctype=multipart/form-data>
-                                <div class="col"><input class="form-control" id="file" type="file"   name='file' aria-label="Input file"  onchange="this.form.submit();"/></div>
+                                <div class="col"><input class="form-control" id="file" type="file" name='file' onchange="this.form.submit()"/></div>
+                                  <style>
+                                    .form-control{
+                                      background: #1f1f1f;
+                                      color: white;
+                                      border-style: outset;
+                                      border-color: #1f1f1f;
+
+                                      width: 2wh;
+                                      font: bold15px arial,sans-serif;
+                                      text-shadow: none;
+                                    }
+                                    .col{
+                                      background: black;
+                                      border-style: outset;
+
+                                    }
+
+                                    input[type=file]::file-selector-button {
+                                      border: 2px solid #828091;
+                                      padding: .2em .4em;
+                                      border-radius: .2em;
+                                      width: 1wh;
+                                      background-color: #636363;
+                                      transition: 1s;
+                                      color: white;
+                                    }
+
+                                    input[type=file]::file-selector-button:hover {
+                                      background-color: #81ecec;
+                                      border: 2px solid #00cec9;
+
+                                      width: 1wh;
+                                    }
+
+                                </style>
                               </form>
                             </div>
                             <div class="d-none" id="submitSuccessMessage">
@@ -163,35 +193,136 @@
                     </div>
                 </div>
           </div>
-        </section>
-        <!-- Contact-->
-        <section class="contact-section bg-black">
+           </section>
+<section class="contact-section bg-black" id="us">
+      <h1 class="text-uppercase text-center" font-family="garamond" style="color:white; margin-bottom:10vh">
+        The Team
+  </h1>
+
+
             <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                              <img class = "mb-2 Pfp" src = "https://cdn.discordapp.com/attachments/988470112212377611/989559873849151518/meeeee.jpeg" style = "height:auto; width:10vw; margin-bottom: 5vh">
+                                <h4 class="text-uppercase m-0"><a style = "text-decoration:none; color:black" href ="https://youtu.be/-Axp7OJF8zI" target="_blank">Amiriyah Atwood</a></h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">Drowning in Work</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0 ">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                              <img class = "mb-2 Pfp" src = "https://media.discordapp.net/attachments/949741363614867456/989554749894447104/IMG_3089.png?width=613&height=594" style = "height:auto; width:10vw;">
+<!--                                 <i class="fas fa-person text-primary mb-2"></i> -->
+                                <h4 class="text-uppercase m-0">Asong Suh Jr</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">Machine Learning Engineer/Website Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                              <img class = "mb-2 Pfp" src = "https://lh3.googleusercontent.com/Mt7pWeDCS_XimxySECcmQZwHSDhfPMHdK3lGPbOJULXZ0sk4DsnCdCFDrbMPvLJ8xAG2YojHSKCWHovyPNrpSBUxaG-oEJD8hPH37tpJi2yO3FxTK89zGNdGiS7eWWgyQWCJ5pU2W6fuTAZOjDLZDS69SA1UN-E48UW3LyPcdVcRftuI2jjoPVR1AS11FcBgbZqfWPuCFLhclrbY44_qkbNt0xA4lVeqUmeh-AHKHEmViquqmwjzgmlkTngp6CMYO6Fku5v9JHytxT0HTG-Lg1gRZAHVnp0QeunyUEwl4RJnzt8PdlH3Gq6jOGZUbFmSZf1X76hIeAC3IuyOwmxPmnO6SZWw6AOK46w75OvZWFsgEgttyxriVTdUwqE5T4U6i9BjaFMn4yfDgqeKjeZyNaEEfPyb-oiLCCEitCbCHFnUIUhRx7f9fi2anqVzy1J6H8rTcf8yPybaJD3rp2lehCnXWquI58iG2Hmli1tNR2MpkW6me7g5mMN_jGpg5hwbOaJgmGdVaScJXMPh3yyRCQp_zzb_HktM-UA_qnW3p14ggJ4_pyjY983Szwuw2Xtt4GxQ7dSApryySGBNdNiDuvM3P0e2x16NPmct6I-SA7NZISNUTVhNwZl5jmZwvfbqME_V5cohXw2heDaYT36DhdN2JIZKnITWyfurlC9fo5fZdsgfb9jgv1HLVhU2X0LpLJm6V5Oxa6PEMQc28oYzj1lAk7XlkV44hqY1xzadCSwUgO7ClbquqhBj9Mo4fRg=w724-h965-no?authuser=0" style = "height:auto; width:10vw; margin-bottom: 5vh">
+                                
+                              <h4 class="text-uppercase m-0"><a style = "text-decoration:none; color:black" href="https://diegocldrn.github.io/">Diego Calderon</a></h4>
+                                <hr class="my-4 mx-auto" />
+                              <div class="small text-black-50"><a href="https://imgur.com/wtjsnH0">Java Hater </a><i><b>/</b></i><a href="https://imgur.com/HwGzDvR"> Python Lover</a></div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+  </div>
+ 
+                  </section>
+<section class="contact-section bg-black" style = "padding-top:5vh">
+                                <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <a href="https://github.com/Gm4ch">
+                                <img class="Pfp" src="https://media-exp2.licdn.com/dms/image/C4E03AQHa4K72UeqjgA/profile-displayphoto-shrink_200_200/0/1655741676290?e=1661385600&v=beta&t=A9NfSTdgA7QCN_JHrIiYbXQY7R0fbnlvoWjxa0sOh5c" alt="Very cool person">
+                                  </a>
+                              <style>
+                              .Pfp {
+                                  border-radius: 8px;
+                                  padding: 5px
+                                  display: inline-block;
+                                  margin: 25px 10px;
+                                  max-width: 100%;
+                                  height: auto;
+                                }
+                              </style>
+                              <h4 class="text-uppercase m-0"><a style = "text-decoration:none; color:black" href ="https://www.linkedin.com/in/gur-machol/" target="_blank">Gur Machol</a></h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">Product Manager / Machine Learning Engineer</div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                              <img
+                                  src="https://media.discordapp.net/attachments/878118241686413395/989558483701608478/unknown.png" class="Pfp">
+                                
+                                <h4 class="text-uppercase m-0">Sushim Chakrabortty<h4>
+              <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">"VsCode better than CoCalc ngl"</div>
+                            </h4>
+                              </h4>
+                              
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                              
+                                <img src="https://cdn.discordapp.com/attachments/907826477331001367/989559290232709150/IMG_1381_1.jpg" style = "height:auto; width:10vw; margin-bottom: 5vh" class="Pfp">
+                             
+                              <h4 class="text-uppercase m-0" >Wyatt Blevins</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">Machine Learning Engineer/Backend Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                                  </div>
+  </div>
+
+
+        </section>
+         <!-- Contact-->
+        <section class="contact-section bg-black">
+            <div class="container px-4 px-lg-5 names">
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-4 mb-3 mb-md-0">
                     </div>
                     <div class="col-md-4 mb-3 mb-md-0">
                         <div class="card py-4 h-100">
                             <div class="card-body text-center">
-                                <i class="fas fa-person text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Inspired by</h4>
+                              <img src = "https://media-exp1.licdn.com/dms/image/C4D03AQEEeuyhUzIieg/profile-displayphoto-shrink_200_200/0/1622834979527?e=1660176000&v=beta&t=iLsSVQ_ESt7vAnqluiT2vj8lgTXmR6CpIbyyH__o6ag" class="Pfp">
+                             
+                                <h4 class="text-uppercase m-0"><a style = "text-decoration:none;" href="https://media-exp1.licdn.com/dms/image/C4D03AQEEeuyhUzIieg/profile-displayphoto-shrink_200_200/0/1622834979527?e=1660176000&v=beta&t=iLsSVQ_ESt7vAnqluiT2vj8lgTXmR6CpIbyyH__o6ag">Nathan Reilly</a></h4>
                                 <hr class="my-4 mx-auto" />
-                              <div class="small text-black-50"><a href="https://en.wikipedia.org/wiki/Lawrence_Roberts_(scientist)">Larry Roberts, our love.</a></div>
+                              <div class="small text-black-50">Our professional instructor</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </section>
-         
+                    <a class="mx-2" href="https://github.com/Gm4ch/Weapon-detection" target="_blank"><i class="fab fa-github"></i></a></div>
+                            </div>
+           </section>
+
+
         <!-- Footer-->
-<footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5"><em>Midnight Sirens - AI Camp 2022</em></div></footer>
-          
-          
-          
+             <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5"><em>Midnight Sirens - AI Camp 2022</em></div></footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
