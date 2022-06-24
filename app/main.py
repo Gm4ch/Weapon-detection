@@ -31,6 +31,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024
 
 model = torch.hub.load("ultralytics/yolov5", "custom", path = 'best.pt', force_reload=True)
+
 # model.agnostic = True
 
 def allowed_file(filename): #checks if file type is a picture

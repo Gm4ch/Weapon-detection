@@ -1,117 +1,72 @@
-# Computer Vision Web Scaffold
-A scaffold for deploying dockerized flask applications.
+# Weapon Detection
 
-If you have any questions, feel free to open an issue on [Github](https://github.com/organization-x/omni/issues).
+A useful application that detects any imminent weaponry in hopes of security and safety.
 
-### Video Guide
-[![Deploy a Web Project with Flask](https://img.youtube.com/vi/JUb-PpejA7w/0.jpg)](https://youtu.be/JUb-PpejA7w "Deploy a Web Project with Flask")
+As for our website: it was built using a Bootstrap placeholder with HTML and CSS, but to connect with our model, a Python framework called [_Flask._](https://github.com/pallets/flask/ "Flask git repo") Flask allowed us to interface our previously trained model with our website so that users could upload photos to have our model run detection on whatever subjects may be in the user's photo.
 
-This guide covers how you can quickly deploy most projects with the [Flask](https://flask.palletsprojects.com/) framework and our omni scaffold.
+#### Note From The Team
 
-### Quickstart Guide for Local Development
+```python
+userAns = input("is java good? ")
+while userAns = "yes" or userAns = "y":
+  print("Your opinion is wrong")
+  input("Try again. is java good? ")
+if userAns == "no" or userAns == "it sucks" or userAns == "  n":
+    print("Correct! great Job! you are a human being")
+else:
+  print("this is not an acceptable answer")
+```
 
-First clone this repository through 
+## Introduction
 
-`https://github.com/organization-x/omni`
+We came up with this project after reflecting on the recent crime that has been going on in the US. We created a product that analyzes pictures/videos for dangers/threats (Knives/guns/other weapons) in public areas. Our original goal was to use CCTV footage to detect weapons, with the ability to detect if a person was holding the weapon or not. Ultimately with the three weeks that we had to create this model, we were a little limited on what we could do. The final product is capable of detecting 6 individually different classes from whatever image the user may have input, and recognition of those 6 classes can be a little spotty. For the most part, our accuracy is satisfactory and we do produce positive results.
 
-cd into the `/app` folder
+## Training
 
-`python3 -m pip install -r requirements.txt`
+The first iteration of training started with a dataset of 940 Images, with a total of 7 classes:
 
-edit line 29 the `main.py` file to either the URL of the cocalc server you are on or `localhost` if you are running it on your own PC
+1. Holstered_handgun
+2. Unholstered_handgun
+3. Explosive
+4. Knife_in-hand
+5. Knife_out-hand
+6. Rifle-off-person
+7. rifle-on-person
 
-Then, clone ultralytics yolov5 in the app folder, by running 
+This dataset was then augmented with flip, blur, and brightness, and ran through the model. There were some problems with this iteration however, knives were constantly being detected as guns due to uneven sorting between the testing, validation, training sets, and other inaccuracies.
 
-`git clone https://github.com/ultralytics/yolov5`
-`pip install -r yolov5/requirements.txt`
+The second iteration added an additional 168 images to the data set in order for the classes to be better represented in the dataset and the bounding boxes for the images were readjusted. However, it was having an issue differentiating between knives and rifles, due to all 200 knife images only being in the validation and testing sets and not the training set.
 
-Run
+The fourth iteration kept the same amount of images, however, the Knife_in-hand and Knife_out-hand were combined into one class, the Knife class. The images of knives were redistributed between the sets in order for the model to be able to train for knives as well as a noise augmentation was added to the dataset as a whole. With these changes there was a huge improvement in the results of the model, however, there was still a lack of null images within the dataset.
 
- `python3 -m main`
+The fifth iteration added an additional 210 images for a total of 1318 images, including more knives and null images. Overall showing a huge improvement in every aspect, however not without its flaws.
 
-to start the server on local, most changes while developing will be picked up in realtime by the server
+The sixth iteration added a hundred images for each class in order to improve accuracy
+of the model, showing the best results out of the six.
 
-### Quickstart Guide for Local Deployment
+<img src="app/static/images/confusion_matrix.png"/>
 
-Make sure docker is installed on your system. Look that up if you don't know what that means.
+## Evaluation
 
-cd into the root director of the repo then run 
+#### Accurate Predictions
 
-`docker build -t omni .`
+...
 
-once built, run
+#### Misidentification
 
-`docker run -d -p 9000:80 --restart=unless-stopped --name omni omni`
+Though with respectable accuracy, our model often incorrectly identifies or misidentifies weapons in various pictures, a problem commonly associated with models trained for only 3 weeks. Furthermore, a skew in our dataset, with explosives and rifles-off-person being overrepresented, and knives, rifles-on-person, and holstered handguns being underrepresented in our data, was likely also a contributing factor to our model's letdowns in performance.
 
-you should then be able to see the `omni` container running when you run 
+## Frontend
 
-`docker ps -a`
+The front end of our website displaying the model was created with a bootstrap template found at startbootstrap.com. Furthermore, we used Python framework Flask to connect our website to our model, and add functionality (image upload/processing)
 
-if it seems to be stuck (i.e. constantly listed as `Restarting`), something is wrong with the docker image or code inside causing it to repeatedly fail.
+## Conclusion
 
-you can start debugging the project by running 
+Our product is good for it being done in three weeks but our team had bigger plans than just detecting things in images. 
 
-`docker logs -f omni` 
+As stated in the beginning of our presentation we were planning to use CCTV footage. Our original idea expanded to what could be a full blown product. It was to detect whether a situation was hostile or not. Using live footage and audio detection. It was supposed to be able to tell the difference between a person threatening others with a knife and someone cutting up some steak. We even had an idea were it'd send out alerts whether that be to everyone in the area, the owner, or police. Of course, there's always things that can go wrong.
 
-or
+There were chances of the perpetrator being alerted as well, misidentifications which would lead to falsely calling authorities, and weapons of cops being identified as threats.
 
-`docker exec -it omni /bin/bash` for an interactive bash terminal (this option only works if the container is running and not stuck in a restart loop)
+In conclusion, there was a lot we got done in three weeks. However, to create the product we envisioned you'd need AI. True artificial intelligence that can understand what we do about a situation- and maybe we can achieve that. It just takes people like us putting our minds together like we did here at AI Camp 2022.
 
-### Common Issues
-
-`$'\r': command not found` when attempting to start docker container
-
-this is caused by the the `entrypoint.sh` script somehow having CLRF line endings instead of LF line endings.
-
-to fix this run
-
-`sed -i 's/\r$//' entrypoint.sh`
-
-### File Structure
-The files/directories which you will need to edit are **bolded**
-
-**DO NOT TOUCH OTHER FILES. THIS MAY RESULT IN YOUR PROJECT BEING UNABLE TO RUN**
-
-- .gitignore
-- config.py
-- Dockerfile
-- READMD.md
-- entrypoint.sh
-- nginx_host
-- host_config
-- app/
-     - **main.py**
-     - **best.pt** <- you will need to upload this yourself after cloning the repo when developing the site
-     - **requirements.txt**
-     - **utils.py**
-     - templates/
-          - **index.html**
-
-### How to upload best.pt to your file structure?
-Run 
-`cp ../path/to/best.pt best.pt`
-### best.pt ###
-The weights file - must upload if you are running file on coding center or are trying to deploy.
-### main.py ###
-Contains the main flask app itself.
-### requirements.txt ###
-Contains list of packages and modules required to run the flask app. Edit only if you are using additional packages that need to be pip installed in order to run the project.
-
-To generate a requirements.txt file you can run
-
-`pip list --format=freeze > app/requirements.txt`
-
-the requirements.txt file will then be updated. Keep in mind: some packages you install on one operating system may not be available on another. You will have to debug and resolve this yourself if this is the case.
-### static/ ###
-Contains the static images, CSS, & JS files used by the flask app for the webpage. You will need to create this and put files in it. Place all your images used for your website in static/images/ so that you can then reference them in your html files.
-### utils.py ###
-Contains common functions used by the flask app. Put things here that are used more than once in the flask app.
-### templates/ ###
-Contains the HTML pages used for the webpage. Edit these to fit your project. index.html is the demo page.
-### Files used for deployment ###
-`config.py`
-`Dockerfile`
-`entrypoint.sh`
-`nginx_host`
-`host_config`
-**Only modify `host_config`. Do not touch the other files.**
