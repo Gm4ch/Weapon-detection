@@ -56,6 +56,8 @@ of the model, showing the best results out of the six.
 
 Though with respectable accuracy, our model often incorrectly identifies or misidentifies weapons in various pictures, a problem commonly associated with models trained for only 3 weeks. Furthermore, a skew in our dataset, with explosives and rifles-off-person being overrepresented, and knives, rifles-on-person, and holstered handguns being underrepresented in our data, was likely also a contributing factor to our model's letdowns in performance.
 
+<img src="app/static/images/banan=knife.jpg"/>
+
 ## Frontend
 
 The front end of our website displaying the model was created with a bootstrap template found at startbootstrap.com. Furthermore, we used Python framework Flask to connect our website to our model, and add functionality (image upload/processing)
